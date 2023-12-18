@@ -56,3 +56,4 @@ compile_commands.json
 #windows folders
 /src/debug
 /src/release
+/.vscode
