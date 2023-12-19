@@ -11,3 +11,6 @@ QT+= core widgets
 # Input
 HEADERS += view/MainWindow.h
 SOURCES += main.cpp view/MainWindow.cpp
+#Fontawesome Icons
+CONFIG+=fontAwesomeFree
+include(lib/QtAwesome/QtAwesome.pri)
