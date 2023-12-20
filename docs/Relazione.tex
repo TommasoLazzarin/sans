@@ -21,12 +21,12 @@
 \section{Introduzione}
 \subsection{Sintesi del programma}
 Sans è un programma scritto in C++ che implementa il framework Qt per presentare le informazioni all'utente attraverso un'interfaccia grafica. Il suo compito è gestire, simulare, importare ed esportare sensori.
-Il programma ne mette a disposizione tre tipi: quelli che rilevano un valore e la sua variazione nel tempo, quelli che rilevano un valore istantaneo e quelli che rilevano un evento.
+Il programma ne mette a disposizione tre tipi: quelli che rilevano un valore e la sua variazione nel tempo, quelli che rilevano una quantità e quelli che rilevano un evento.
 Questa scelta è stata fatta in modo tale da utilizzare due tipi di grafici e una barra del progresso: 
 \begin{itemize}
     \item Un grafico lineare per rappresentare i valori nel tempo;
     \item Un grafico a barre che rappresenta il numero di occorrenze di un evento in un periodo;
-    \item Una barra del progresso che rappresenta simbolicamente un valore istantaneo.
+    \item Una barra del progresso che rappresenta simbolicamente una quantità.
 \end{itemize}
 La selezione di questo tipo di sensori permette di avere una gerarchia di classi in cui le sottoclassi riutilizza le strutture dati già messe a disposizione dalla sua superclasse in maniera efficace.
 Un altro punto fondamentale di questo progetto è il supporto alla persistenza dei dati, questo è ottenuto attraverso l'uso di JSON, un formato strutturato.
