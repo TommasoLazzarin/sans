@@ -10,9 +10,9 @@ namespace model
         const int max_value;
 
     public:
-        QuantitySensor(QString identifier, QDateTime created, int max);
+        QuantitySensor(const QString& identifier, const QDateTime& created, const int max);
         int getValue() const;
-        void setValue(int);
+        void setValue(const int new_val);
         int getMaxValue() const;
     };
 }

@@ -8,11 +8,15 @@ namespace model
     {
     private:
         QList<float> values_list;
-        void addValue(QDateTime timestamp, float value);
+        void addValue(const QDateTime &timestamp, const float value);
+
     public:
-        TimedValue(QString identifier, QDateTime created);
-        TimedValue(QString identifier, QDateTime created, QList<QDateTime> events, QList<float> values);
-        QList<float>::const_iterator getValuesConstIterator();
+        TimedValue(const QString &identifier, const QDateTime &created);
+        TimedValue(const QString &identifier,
+                   const QDateTime &created,
+                   const QList<QDateTime> &events,
+                   const QList<float> &values);
+        QList<float>::const_iterator getValuesConstIterator() const;
     };
 }
 #endif

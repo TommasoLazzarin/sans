@@ -10,7 +10,7 @@ namespace model
         QDateTime created_at;
         QString name;
     protected:
-        Sensor(QString n, QDateTime date);
+        Sensor(const QString& n, const QDateTime& date);
 
     public:
         QString getName() const;

@@ -12,8 +12,10 @@ namespace model
         void addEvent(QDateTime event);
 
     public:
-        EventSensor(QString identifier, QDateTime created);
-        EventSensor(QString identifier, QDateTime created, QList<QDateTime> events);
+        EventSensor(const QString &identifier, const QDateTime &created);
+        EventSensor(const QString &identifier,
+                    const QDateTime &created,
+                    const QList<QDateTime> &events);
         QList<QDateTime>::const_iterator getEventsConstIterator() const;
     };
 }
