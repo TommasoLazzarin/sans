@@ -13,7 +13,7 @@ namespace view
         Q_OBJECT
     private:
         fa::QtAwesome* awesome;
-        QHBoxLayout* layout;
+        //QHBoxLayout* layout;
     public:
         explicit MainWindow(QWidget *parent = 0);
     public slots:

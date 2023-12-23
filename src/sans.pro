@@ -11,12 +11,17 @@ QT+= core widgets
 # Input
 HEADERS += \
         view/MainWindow.h \
+        view/SensorsList.h \
+        view/SensorView.h \
         model/Sensor.h \
         model/QuantitySensor.h \
         model/EventSensor.h \
-        model/TimedValueSensor.h
+        model/TimedValueSensor.h 
 SOURCES += \
-        main.cpp view/MainWindow.cpp \
+        main.cpp \
+        view/MainWindow.cpp \
+        view/SensorView.cpp \
+        view/SensorsList.cpp \
         model/Sensor.cpp \
         model/QuantitySensor.cpp \
         model/EventSensor.cpp \

@@ -3,15 +3,17 @@
 #include <QMenuBar>
 #include <QApplication>
 #include <QProgressBar>
+#include <QSplitter>
 // include custom
 
 #include "MainWindow.h"
+#include "SensorsList.h"
 
 namespace view
 {
     MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
-                                              awesome(new fa::QtAwesome(this)),
-                                              layout(new QHBoxLayout(this))
+                                              awesome(new fa::QtAwesome(this))
+                                              //layout(new QHBoxLayout(this))
     {
         awesome->initFontAwesome();
         // actions
@@ -23,8 +25,20 @@ namespace view
         menu->addAction(close);
 
         // imposta layout
-        setLayout(layout);
+        //setLayout(layout);
+        QSplitter* splitter = new QSplitter(this);
+        setCentralWidget(splitter);
+        SensorsList* sensorsList = new SensorsList();
+        sensorsList->setMinimumWidth(200);
+        sensorsList->setMinimumHeight(500);
 
+        QProgressBar* b2 = new QProgressBar();
+        b2->setValue(70);
+        b2->setMinimumWidth(600);
+        splitter->addWidget(sensorsList);
+        splitter->addWidget(b2);
+        splitter->setSizes(QList<int>()<<500<<1000);
+        splitter->setChildrenCollapsible(false);
         // connect
         connect(close, &QAction::triggered, this, &MainWindow::close);
     }
