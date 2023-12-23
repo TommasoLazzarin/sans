@@ -4,7 +4,8 @@
 namespace view{
     class SensorList:public QListWidget{
         Q_OBJECT
-        public SensorList():{}
+        public: 
+        SensorList();
     };
 }
 

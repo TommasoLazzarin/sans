@@ -1,5 +1,8 @@
 #include <QApplication>
 #include "view/MainWindow.h"
+#include "model/QuantitySensor.h"
+#include <iostream>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
