@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     fa::QtAwesome* awesome = new fa::QtAwesome();
     awesome->initFontAwesome();
-    app.setWindowIcon(awesome->icon("fa-solit fa-gauge"));
+    app.setWindowIcon(awesome->icon("fa-solid fa-gauge"));
     view::MainWindow window(awesome);
     window.resize(1024,576);
     window.show();
