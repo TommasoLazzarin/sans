@@ -11,11 +11,9 @@
 
 namespace view
 {
-    MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),
-                                              awesome(new fa::QtAwesome(this))
+    MainWindow::MainWindow(fa::QtAwesome* icons, QWidget *parent) : awesome(icons), QMainWindow(parent)
                                               //layout(new QHBoxLayout(this))
     {
-        awesome->initFontAwesome();
         // actions
         QAction *close = new QAction(awesome->icon(fa::fa_solid, fa::fa_xmark), "Close");
 

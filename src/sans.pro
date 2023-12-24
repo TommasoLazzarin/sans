@@ -29,3 +29,4 @@ SOURCES += \
 #Fontawesome Icons
 CONFIG+=fontAwesomeFree
 include(lib/QtAwesome/QtAwesome.pri)
+RC_ICONS = assets/sans-icon.ico

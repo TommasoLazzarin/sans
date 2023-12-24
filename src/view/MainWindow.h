@@ -15,7 +15,7 @@ namespace view
         fa::QtAwesome* awesome;
         //QHBoxLayout* layout;
     public:
-        explicit MainWindow(QWidget *parent = 0);
+        explicit MainWindow(fa::QtAwesome* icons,QWidget *parent = 0);
     public slots:
         void close();
     };
