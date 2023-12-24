@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QToolBar>
-#include <QHboxLayout>
+#include <QHBoxLayout>
 #include "lib/QtAwesome/QtAwesome.h"
 #include "model/QuantitySensor.h"
 namespace view
