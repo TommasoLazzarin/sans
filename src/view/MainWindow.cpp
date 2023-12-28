@@ -11,8 +11,7 @@
 
 namespace view
 {
-    MainWindow::MainWindow(fa::QtAwesome* icons, QWidget *parent) : awesome(icons), QMainWindow(parent)
-                                              //layout(new QHBoxLayout(this))
+    MainWindow::MainWindow(model::db::Database* database,fa::QtAwesome* icons, QWidget *parent) :db(database), awesome(icons), QMainWindow(parent)
     {
         // actions
         QAction *close = new QAction(awesome->icon(fa::fa_solid, fa::fa_xmark), "Close");
@@ -26,14 +25,14 @@ namespace view
         //setLayout(layout);
         QSplitter* splitter = new QSplitter(this);
         setCentralWidget(splitter);
-        SensorsList* sensorsList = new SensorsList();
-        sensorsList->setMinimumWidth(200);
-        sensorsList->setMinimumHeight(500);
+        browser=new view::BrowserWidget(db, this);
+        browser->setMinimumWidth(200);
+        browser->setMinimumHeight(500);
 
         QProgressBar* b2 = new QProgressBar();
         b2->setValue(70);
         b2->setMinimumWidth(600);
-        splitter->addWidget(sensorsList);
+        splitter->addWidget(browser);
         splitter->addWidget(b2);
         splitter->setSizes(QList<int>()<<500<<1000);
         splitter->setChildrenCollapsible(false);

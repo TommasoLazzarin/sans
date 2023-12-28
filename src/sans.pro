@@ -14,17 +14,20 @@ HEADERS += \
         view/SensorsList.h \
         view/SensorView.h \
         view/NewSensorWizard.h \
+        view/BrowserWidget.h \
         model/Sensor.h \
         model/QuantitySensor.h \
         model/EventSensor.h \
         model/TimedValueSensor.h \
-        model/db/Database.h
+        model/db/Database.h \
+
 SOURCES += \
         main.cpp \
         view/MainWindow.cpp \
         view/SensorView.cpp \
         view/SensorsList.cpp \
         view/NewSensorWizard.cpp \
+        view/BrowserWidget.cpp \
         model/Sensor.cpp \
         model/QuantitySensor.cpp \
         model/EventSensor.cpp \

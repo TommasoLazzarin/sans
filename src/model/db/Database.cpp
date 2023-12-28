@@ -3,7 +3,7 @@
 model::db::Database::Database() {}
 
 void model::db::Database::add(Sensor *s){
-    if(s!=nullptr) sensors_db.push_front(s);
+    if(s!=nullptr) sensors_db.prepend(s);
 }
 
 void model::db::Database::remove(const Sensor *s){

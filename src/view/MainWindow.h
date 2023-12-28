@@ -6,6 +6,8 @@
 #include <QHBoxLayout>
 #include "lib/QtAwesome/QtAwesome.h"
 #include "model/QuantitySensor.h"
+#include "model/db/Database.h"
+#include "view/BrowserWidget.h"
 namespace view
 {
     class MainWindow : public QMainWindow
@@ -13,9 +15,11 @@ namespace view
         Q_OBJECT
     private:
         fa::QtAwesome* awesome;
+        model::db::Database* db;
+        view::BrowserWidget* browser;
         //QHBoxLayout* layout;
     public:
-        explicit MainWindow(fa::QtAwesome* icons,QWidget *parent = 0);
+        explicit MainWindow(model::db::Database* database, fa::QtAwesome* icons,QWidget *parent = 0);
     public slots:
         void close();
     };

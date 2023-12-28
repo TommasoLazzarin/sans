@@ -11,7 +11,9 @@ namespace view
         private:
             model::Sensor* generatedSensor;
         public:
+            NewSensorWizard();
             model::Sensor* getGeneratedSensor();
+
     };
 }
 
