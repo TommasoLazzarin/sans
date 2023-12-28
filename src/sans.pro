@@ -16,10 +16,7 @@ HEADERS += \
         view/NewSensorWizard.h \
         view/BrowserWidget.h \
         view/sensor/ControlPanel.h \
-        view/sensor/EventGraph.h \
-        view/sensor/QuantitySensor.h \
         view/sensor/SensorPage.h \
-        view/sensor/TimedValueGraph.h \
         model/Sensor.h \
         model/QuantitySensor.h \
         model/EventSensor.h \
@@ -34,10 +31,7 @@ SOURCES += \
         view/NewSensorWizard.cpp \
         view/BrowserWidget.cpp \
         view/sensor/ControlPanel.cpp \
-        view/sensor/EventGraph.cpp \
-        view/sensor/QuantitySensor.cpp \
         view/sensor/SensorPage.cpp \
-        view/sensor/TimedValueGraph.cpp \
         model/Sensor.cpp \
         model/QuantitySensor.cpp \
         model/EventSensor.cpp \

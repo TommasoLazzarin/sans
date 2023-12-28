@@ -29,11 +29,13 @@ namespace view
         browser->setMinimumWidth(200);
         browser->setMinimumHeight(500);
 
-        QProgressBar* b2 = new QProgressBar();
-        b2->setValue(70);
-        b2->setMinimumWidth(600);
+        //QProgressBar* b2 = new QProgressBar();
+        //b2->setValue(70);
+        //b2->setMinimumWidth(600);
+        sensorPage=new view::sensor::SensorPage(this);
         splitter->addWidget(browser);
-        splitter->addWidget(b2);
+        //splitter->addWidget(b2);
+        splitter->addWidget(sensorPage);
         splitter->setSizes(QList<int>()<<500<<1000);
         splitter->setChildrenCollapsible(false);
         // connect

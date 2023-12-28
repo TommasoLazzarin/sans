@@ -8,6 +8,7 @@
 #include "model/QuantitySensor.h"
 #include "model/db/Database.h"
 #include "view/BrowserWidget.h"
+#include "view/sensor/SensorPage.h"
 namespace view
 {
     class MainWindow : public QMainWindow
@@ -17,6 +18,7 @@ namespace view
         fa::QtAwesome* awesome;
         model::db::Database* db;
         view::BrowserWidget* browser;
+        view::sensor::SensorPage* sensorPage;
         //QHBoxLayout* layout;
     public:
         explicit MainWindow(model::db::Database* database, fa::QtAwesome* icons,QWidget *parent = 0);

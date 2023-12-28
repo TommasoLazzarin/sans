@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include "view/sensor/ControlPanel.h"
+#include "model/Sensor.h"
 namespace view
 {
     namespace sensor
@@ -25,9 +27,11 @@ namespace view
 
         private:
             QVBoxLayout *layout;
-
+            view::sensor::ControlPanel *controlPanel;
+            model::Sensor* sensor;
         public:
             explicit SensorPage(QWidget *parent = nullptr);
+            void setSensor(model::Sensor* sensor);
         };
 
     }
