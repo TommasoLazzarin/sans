@@ -8,15 +8,16 @@ namespace model
     {
     private:
         QList<QDateTime> event_list;
-        unsigned __int8 sim_period;
+        //unsigned __int8 sim_period;//??
         void addEvent(QDateTime event);
 
     public:
-        EventSensor(const QString &identifier, const QDateTime &created);
-        EventSensor(const QString &identifier,
-                    const QDateTime &created,
+        EventSensor(const QString &n, const QDateTime &date);
+        EventSensor(const QString &n,
+                    const QDateTime &date,
                     const QList<QDateTime> &events);
         QList<QDateTime>::const_iterator getEventsConstIterator() const;
+        void simulate();
     };
 }
 #endif
