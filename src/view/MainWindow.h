@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QToolBar>
 #include <QHBoxLayout>
+#include <QSplitter>
 #include "lib/QtAwesome/QtAwesome.h"
 #include "model/QuantitySensor.h"
 #include "model/db/Database.h"
@@ -19,11 +20,14 @@ namespace view
         model::db::Database* db;
         view::BrowserWidget* browser;
         view::sensor::SensorPage* sensorPage;
-        //QHBoxLayout* layout;
+        QSplitter* splitter;
     public:
         explicit MainWindow(model::db::Database* database, fa::QtAwesome* icons,QWidget *parent = 0);
     public slots:
         void close();
+        void showSensorWizard();
+    signals:
+        void newSensorAdded(model::Sensor*);
     };
 }
 #endif

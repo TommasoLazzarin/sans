@@ -12,7 +12,6 @@ QT+= core widgets
 HEADERS += \
         view/MainWindow.h \
         view/SensorsList.h \
-        view/SensorView.h \
         view/NewSensorWizard.h \
         view/BrowserWidget.h \
         view/sensor/ControlPanel.h \
@@ -26,7 +25,6 @@ HEADERS += \
 SOURCES += \
         main.cpp \
         view/MainWindow.cpp \
-        view/SensorView.cpp \
         view/SensorsList.cpp \
         view/NewSensorWizard.cpp \
         view/BrowserWidget.cpp \
