@@ -17,6 +17,7 @@ namespace model
         void setName(const QString&);
         QDateTime getCreatedAt() const;
         virtual void simulate()=0;
+        virtual ~Sensor();
     };
 }
 #endif
