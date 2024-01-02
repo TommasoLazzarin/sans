@@ -10,6 +10,7 @@
 #include "model/db/Database.h"
 #include "view/BrowserWidget.h"
 #include "view/sensor/SensorPage.h"
+#include "view/NewSensorWidget.h"
 namespace view
 {
     class MainWindow : public QMainWindow
@@ -21,6 +22,7 @@ namespace view
         view::BrowserWidget* browser;
         view::sensor::SensorPage* sensorPage;
         QSplitter* splitter;
+        view::NewSensorWidget* newSensorWidget;
     public:
         explicit MainWindow(model::db::Database* database, fa::QtAwesome* icons,QWidget *parent = 0);
     public slots:

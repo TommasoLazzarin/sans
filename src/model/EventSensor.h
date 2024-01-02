@@ -16,8 +16,9 @@ namespace model
         EventSensor(const QString &n,
                     const QDateTime &date,
                     const QList<QDateTime> &events);
+        ~EventSensor(){};
         QList<QDateTime>::const_iterator getEventsConstIterator() const;
-        void simulate();
+        //virtual void simulate();
     };
 }
 #endif

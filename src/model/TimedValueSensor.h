@@ -16,8 +16,9 @@ namespace model
                    const QDateTime &date,
                    const QList<QDateTime> &events,
                    const QList<float> &values);
+        ~TimedValueSensor(){};
         QList<float>::const_iterator getValuesConstIterator() const;
-        void simulate();
+        //virtual void simulate();
     };
 }
 #endif

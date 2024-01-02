@@ -11,10 +11,11 @@ namespace model
 
     public:
         QuantitySensor(const QString& identifier, const QDateTime& created, const int max, const int val=0);
+        ~QuantitySensor(){};
         int getValue() const;
         void setValue(const int new_val);
         int getMaxValue() const;
-        void simulate();
+        virtual void simulate();
     };
 }
 

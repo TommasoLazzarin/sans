@@ -1,5 +1,5 @@
-#include "TimedValueSensor.h"
+#include "model/TimedValueSensor.h"
 
-model::TimedValue::TimedValue(const QString &n, const QDateTime &date): Sensor(n, date){
+model::TimedValueSensor::TimedValueSensor(const QString &n, const QDateTime &date): Sensor(n, date){
     values_list = QList<float>();
 }

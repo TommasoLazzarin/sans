@@ -22,12 +22,12 @@ void model::db::Database::addEmptyQuantitySensor(const QString &name, const int 
 
 void model::db::Database::addEmptyEventSensor(const QString &name)
 {
-    if (name != nullptr)
-        sensors_db.prepend(new EventSensor(name, QDateTime::currentDateTime()));
+    //if (name != nullptr)
+        //sensors_db.prepend(new EventSensor(name, QDateTime::currentDateTime()));
 }
 
 void model::db::Database::addEmptyTimedValueSensor(const QString &name)
 {
-    if (name != nullptr)
-        sensors_db.prepend(new TimedValueSensor(name, QDateTime::currentDateTime()));
+    //if (name != nullptr)
+        //sensors_db.prepend(new TimedValueSensor(name, QDateTime::currentDateTime()));
 }

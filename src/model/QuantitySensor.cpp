@@ -1,5 +1,5 @@
 #include "./QuantitySensor.h"
-#include "QuantitySensor.h"
+#include "model/QuantitySensor.h"
 
 model::QuantitySensor::QuantitySensor(const QString& identifier, const QDateTime& created, const int max, const int val) : Sensor(identifier, created), value(val), max_value(max){};
 

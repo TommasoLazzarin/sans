@@ -12,6 +12,10 @@ namespace view
 {
     MainWindow::MainWindow(model::db::Database* database,fa::QtAwesome* icons, QWidget *parent) :db(database), awesome(icons), QMainWindow(parent)
     {
+        setWindowIcon(awesome->icon("fa-solid fa-gauge"));
+        //inizializza il NewSensorWidget
+        newSensorWidget = new view::NewSensorWidget(awesome, this);
+        newSensorWidget->show();
         // actions
         QAction *close = new QAction(awesome->icon(fa::fa_solid, fa::fa_xmark), "Close");
         QAction *emptySensor = new QAction(awesome->icon(fa::fa_solid, fa::fa_arrow_up_right_from_square), "Create empty");
@@ -48,7 +52,6 @@ namespace view
 
     void MainWindow::showSensorWizard()
     {
-        view::SensorWizard* wizard=new view::SensorWizard(db,this);
-        wizard->show();
+
     }
 }
