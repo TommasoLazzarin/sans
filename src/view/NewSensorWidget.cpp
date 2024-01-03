@@ -39,7 +39,7 @@ view::NewSensorWidget::NewSensorWidget(fa::QtAwesome *fa, QWidget *parent) : awe
     buttonsLayout->addWidget(cancelButton);
     layout->addLayout(buttonsLayout);
     connect(cancelButton, &QPushButton::clicked, this, &NewSensorWidget::hide);
-    connect(confirmButton, &QPushButton::clicked, this, &NewSensorWidget::newSensorCreated);
+    connect(confirmButton, &QPushButton::clicked, this, &NewSensorWidget::checkSensorData);
 }
 
 void view::NewSensorWidget::clean()
@@ -70,4 +70,13 @@ QString view::NewSensorWidget::getNewSensorName()
 int view::NewSensorWidget::getNewSensorType()
 {
     return sensorTypeGroup->checkedId();
+}
+
+void view::NewSensorWidget::checkSensorData()
+{
+    if (newSensorName->text().length() > 0 && sensorTypeGroup->checkedId() != -1)
+    {
+        emit newSensorDataReady();
+        hide();
+    }
 }

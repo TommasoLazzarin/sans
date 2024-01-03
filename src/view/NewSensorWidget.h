@@ -30,9 +30,11 @@ namespace view
         int getNewSensorType();
 
     signals:
-        void newSensorCreated(); // avvisa la mainwindow che è stato creato un nuovo sensore
+        void newSensorDataReady(); // avvisa la mainwindow che è stato creato un nuovo sensore
     public slots:
-        void createNewSensor(); // svuoata i campi e mostra la finestra se non è già visibile, altrimenti non fa nulla
+        void createNewSensor(); // svuota i campi e mostra la finestra se non è già visibile, altrimenti non fa nulla
+    private slots:
+        void checkSensorData(); // controlla che i dati inseriti siano validi (stringa>0, tipo selezionato)
     };
 }
 #endif

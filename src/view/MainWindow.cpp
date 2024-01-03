@@ -11,12 +11,12 @@
 
 namespace view
 {
-    MainWindow::MainWindow(model::db::Database* database,fa::QtAwesome* icons, QWidget *parent) :db(database), awesome(icons), QMainWindow(parent)
+    MainWindow::MainWindow(model::db::Database *database, fa::QtAwesome *icons, QWidget *parent) : db(database), awesome(icons), QMainWindow(parent)
     {
         setWindowIcon(awesome->icon("fa-solid fa-gauge"));
-        //inizializza il NewSensorWidget
+        // inizializza il NewSensorWidget
         newSensorWidget = new view::NewSensorWidget(awesome, this);
-        
+
         // actions
         QAction *close = new QAction(awesome->icon(fa::fa_solid, fa::fa_xmark), "Close");
         QAction *emptySensor = new QAction(awesome->icon(fa::fa_solid, fa::fa_arrow_up_right_from_square), "Create empty");
@@ -33,18 +33,18 @@ namespace view
         // imposta layout
         splitter = new QSplitter(this);
         setCentralWidget(splitter);
-        browser=new view::BrowserWidget(db, this);
+        browser = new view::BrowserWidget(db, this);
         browser->setMinimumWidth(200);
         browser->setMinimumHeight(500);
-        sensorPage=new view::sensor::SensorPage(this);
+        sensorPage = new view::sensor::SensorPage(this);
         splitter->addWidget(browser);
         splitter->addWidget(sensorPage);
-        splitter->setSizes(QList<int>()<<500<<1000);
+        splitter->setSizes(QList<int>() << 500 << 1000);
         splitter->setChildrenCollapsible(false);
         // connect
         connect(close, &QAction::triggered, this, &MainWindow::close);
         connect(emptySensor, &QAction::triggered, newSensorWidget, &NewSensorWidget::createNewSensor);
-        connect(newSensorWidget, &NewSensorWidget::newSensorCreated, this, &MainWindow::createNewSensor);
+        connect(newSensorWidget, &NewSensorWidget::newSensorDataReady, this, &MainWindow::createEmptySensor);
     }
 
     void MainWindow::close()
@@ -52,8 +52,8 @@ namespace view
         QApplication::quit();
     }
 
-    void MainWindow::createNewSensor() //si occupa di comunicare al db di creare un'istanza di sensore vuoto
+    void MainWindow::createEmptySensor() // si occupa di comunicare al db di creare un'istanza di sensore vuoto
     {
-        newSensorWidget->hide();
+        
     }
 }
