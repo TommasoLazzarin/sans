@@ -2,6 +2,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QApplication>
+#include <QChar>
 
 // include custom
 #include "MainWindow.h"
@@ -15,7 +16,7 @@ namespace view
         setWindowIcon(awesome->icon("fa-solid fa-gauge"));
         //inizializza il NewSensorWidget
         newSensorWidget = new view::NewSensorWidget(awesome, this);
-        newSensorWidget->show();
+        
         // actions
         QAction *close = new QAction(awesome->icon(fa::fa_solid, fa::fa_xmark), "Close");
         QAction *emptySensor = new QAction(awesome->icon(fa::fa_solid, fa::fa_arrow_up_right_from_square), "Create empty");
@@ -42,7 +43,8 @@ namespace view
         splitter->setChildrenCollapsible(false);
         // connect
         connect(close, &QAction::triggered, this, &MainWindow::close);
-        connect(emptySensor, &QAction::triggered, this, &MainWindow::showSensorWizard);
+        connect(emptySensor, &QAction::triggered, newSensorWidget, &NewSensorWidget::createNewSensor);
+        connect(newSensorWidget, &NewSensorWidget::newSensorCreated, this, &MainWindow::createNewSensor);
     }
 
     void MainWindow::close()
@@ -50,8 +52,8 @@ namespace view
         QApplication::quit();
     }
 
-    void MainWindow::showSensorWizard()
+    void MainWindow::createNewSensor() //si occupa di comunicare al db di creare un'istanza di sensore vuoto
     {
-
+        newSensorWidget->hide();
     }
 }

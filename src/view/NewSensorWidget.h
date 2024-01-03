@@ -7,7 +7,7 @@
 #include <QButtonGroup>
 #include <QRadioButton>
 #include <QList>
-#include <QGroupBox>
+#include <QPushButton>
 #include "lib/QtAwesome/QtAwesome.h"
 namespace view
 {
@@ -19,17 +19,21 @@ namespace view
         QVBoxLayout* layout;
         QLineEdit* newSensorName;
         QButtonGroup* sensorTypeGroup;
-        QList<QRadioButton*> sensorTypeButtonsList;
+        QList<QRadioButton*> sensorTypesButtonsList;
+        QPushButton* confirmButton;
+        QPushButton* cancelButton;
+        
 
     public:
         NewSensorWidget(fa::QtAwesome* fa, QWidget* parent = nullptr);
         QString getNewSensorName();
-        QString getNewSensorType();
+        int getNewSensorType();
+        void clean();
+        
     signals:
-        //void newSensorCreated();
+        void newSensorCreated();
     public slots:
-        //void createNewSensor();
-        //void clear(); //rimuove il testo e resetta i radio button
+        void createNewSensor();
     };
 }
 #endif

@@ -27,9 +27,9 @@ namespace view
         explicit MainWindow(model::db::Database* database, fa::QtAwesome* icons,QWidget *parent = 0);
     public slots:
         void close();
-        void showSensorWizard();
+        void createNewSensor();
     signals:
-        void newSensorAdded(model::Sensor*);
+        void newSensorAdded(model::Sensor*);//per il refresh
     };
 }
 #endif
