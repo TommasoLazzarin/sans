@@ -45,7 +45,7 @@ view::NewSensorWidget::NewSensorWidget(fa::QtAwesome *fa, QWidget *parent) : awe
 void view::NewSensorWidget::clean()
 {
     newSensorName->setText("");
-    sensorTypeGroup->setExclusive(false);//fix
+    sensorTypeGroup->setExclusive(false); // fix
     for (int i = 0; i < sensorTypesButtonsList.size(); i++)
     {
         sensorTypesButtonsList[i]->setChecked(false);
@@ -53,11 +53,13 @@ void view::NewSensorWidget::clean()
     sensorTypeGroup->setExclusive(true);
 }
 
-void view::NewSensorWidget::createNewSensor(){
-    if(isHidden()){
+void view::NewSensorWidget::createNewSensor()
+{
+    if (isHidden())
+    {
         clean();
         show();
-        }
+    }
 }
 
 QString view::NewSensorWidget::getNewSensorName()

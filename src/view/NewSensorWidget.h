@@ -15,25 +15,24 @@ namespace view
     {
         Q_OBJECT
     private:
-    fa::QtAwesome* awesome;
-        QVBoxLayout* layout;
-        QLineEdit* newSensorName;
-        QButtonGroup* sensorTypeGroup;
-        QList<QRadioButton*> sensorTypesButtonsList;
-        QPushButton* confirmButton;
-        QPushButton* cancelButton;
-        
+        fa::QtAwesome *awesome;
+        QVBoxLayout *layout;
+        QLineEdit *newSensorName;
+        QButtonGroup *sensorTypeGroup;
+        QList<QRadioButton *> sensorTypesButtonsList;
+        QPushButton *confirmButton;
+        QPushButton *cancelButton;
+        void clean();
 
     public:
-        NewSensorWidget(fa::QtAwesome* fa, QWidget* parent = nullptr);
+        NewSensorWidget(fa::QtAwesome *fa, QWidget *parent = nullptr);
         QString getNewSensorName();
         int getNewSensorType();
-        void clean();
-        
+
     signals:
-        void newSensorCreated();
+        void newSensorCreated(); // avvisa la mainwindow che è stato creato un nuovo sensore
     public slots:
-        void createNewSensor();
+        void createNewSensor(); // svuoata i campi e mostra la finestra se non è già visibile, altrimenti non fa nulla
     };
 }
 #endif
