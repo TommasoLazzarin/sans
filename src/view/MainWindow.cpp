@@ -7,7 +7,6 @@
 // include custom
 #include "MainWindow.h"
 #include "SensorsList.h"
-#include "SensorWizard.h"
 
 namespace view
 {

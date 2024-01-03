@@ -5,7 +5,6 @@ view::NewSensorWidget::NewSensorWidget(fa::QtAwesome *fa, QWidget *parent) : awe
 {
     setWindowTitle("Create new sensor");
     setFixedSize(300, 170);
-
     setWindowIcon(awesome->icon(fa::fa_solid, fa::fa_arrow_up_right_from_square));
     layout = new QVBoxLayout(this);
     setLayout(layout);
@@ -13,7 +12,7 @@ view::NewSensorWidget::NewSensorWidget(fa::QtAwesome *fa, QWidget *parent) : awe
     title->setAlignment(Qt::AlignCenter);
     layout->addWidget(title);
     newSensorName = new QLineEdit(this);
-    newSensorName->setPlaceholderText("Name");
+    newSensorName->setPlaceholderText("Sensor name");
     layout->addWidget(newSensorName);
     sensorTypesButtonsList = QList<QRadioButton *>();
     sensorTypesButtonsList.append(new QRadioButton("Value sensor (0-100 gauge)", this));
@@ -38,6 +37,12 @@ view::NewSensorWidget::NewSensorWidget(fa::QtAwesome *fa, QWidget *parent) : awe
     cancelButton->setIcon(awesome->icon(fa::fa_solid, fa::fa_times));
     buttonsLayout->addWidget(cancelButton);
     layout->addLayout(buttonsLayout);
+    // error message
+    error = new QMessageBox(this);
+    error->setWindowTitle("Warning: no name or type selected");
+    error->setIcon(QMessageBox::Warning);
+    error->setText("Remember to set a name and choose a type for the new sensor!");
+    // connect
     connect(cancelButton, &QPushButton::clicked, this, &NewSensorWidget::hide);
     connect(confirmButton, &QPushButton::clicked, this, &NewSensorWidget::checkSensorData);
 }
@@ -79,4 +84,6 @@ void view::NewSensorWidget::checkSensorData()
         emit newSensorDataReady();
         hide();
     }
+    else
+        error->exec();
 }
