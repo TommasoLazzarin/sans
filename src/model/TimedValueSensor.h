@@ -1,10 +1,10 @@
 #ifndef MODEL_TIMED_VALUE_SENSOR_H
 #define MODEL_TIMED_VALUE_SENSOR_H
-#include "Sensor.h"
+#include "model/EventSensor.h"
 #include <QList>
 namespace model
 {
-    class TimedValueSensor : public Sensor
+    class TimedValueSensor : public EventSensor
     {
     private:
         QList<float> values_list;
@@ -16,7 +16,7 @@ namespace model
                    const QDateTime &date,
                    const QList<QDateTime> &events,
                    const QList<float> &values);
-        ~TimedValueSensor(){};
+        virtual ~TimedValueSensor(){};
         QList<float>::const_iterator getValuesConstIterator() const;
         //virtual void simulate();
     };
