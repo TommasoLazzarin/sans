@@ -9,7 +9,7 @@
 #include "model/QuantitySensor.h"
 #include "model/db/Database.h"
 #include "view/BrowserWidget.h"
-#include "view/sensor/SensorPage.h"
+#include "view/sensor/SensorViewer.h"
 #include "view/NewSensorWidget.h"
 namespace view
 {
@@ -20,7 +20,7 @@ namespace view
         fa::QtAwesome* awesome;
         model::db::Database* db;
         view::BrowserWidget* browser;
-        view::sensor::SensorPage* sensorPage;
+        view::sensor::SensorViewer* sensorViewer;
         QSplitter* splitter;
         view::NewSensorWidget* newSensorWidget;
     public:

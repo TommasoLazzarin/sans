@@ -35,15 +35,17 @@ namespace view
         browser = new view::BrowserWidget(db, this);
         browser->setMinimumWidth(200);
         browser->setMinimumHeight(500);
-        sensorPage = new view::sensor::SensorPage(this);
+        sensorViewer = new view::sensor::SensorViewer(this);
         splitter->addWidget(browser);
-        splitter->addWidget(sensorPage);
+        splitter->addWidget(sensorViewer);
         splitter->setSizes(QList<int>() << 500 << 1000);
         splitter->setChildrenCollapsible(false);
         // connect
         connect(close, &QAction::triggered, this, &MainWindow::close);
         connect(emptySensor, &QAction::triggered, newSensorWidget, &NewSensorWidget::createNewSensor);
         connect(newSensorWidget, &NewSensorWidget::newSensorDataReady, this, &MainWindow::createEmptySensor);
+        connect(this, &MainWindow::newSensorAdded, browser, &BrowserWidget::updateSensorsList);
+        //connect(browser, &BrowserWidget::sensorSelected, sensorPage, &view::sensor::SensorPage::setSensor);
     }
 
     void MainWindow::close()
@@ -53,6 +55,7 @@ namespace view
 
     void MainWindow::createEmptySensor() // si occupa di comunicare al db di creare un'istanza di sensore vuoto
     {
-        
+        db->addEmptySensor(newSensorWidget->getNewSensorName(), newSensorWidget->getNewSensorType());
+        emit newSensorAdded(db->last()); // emette il segnale per il refresh della lista e lo seleziona nella vista principale
     }
 }

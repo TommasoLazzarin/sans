@@ -11,15 +11,16 @@ namespace model{
         {
         private:
             QList<Sensor*> sensors_db;
-        
+            void addEmptyQuantitySensor(const QString& name, const int max);
+            void addEmptyEventSensor(const QString& name);
+            void addEmptyTimedValueSensor(const QString& name);
         public:
             Database();
             //Database(QList<Sensor*> db);
             void add(Sensor* s);
             void remove(const Sensor* s);
-            void addEmptyQuantitySensor(const QString& name, const int max);
-            void addEmptyEventSensor(const QString& name);
-            void addEmptyTimedValueSensor(const QString& name);
+            void addEmptySensor(const QString& name, const int type);
+            model::Sensor* last();
         };
     }
 }

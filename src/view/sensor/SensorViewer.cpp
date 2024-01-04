@@ -1,6 +1,6 @@
-#include "SensorPage.h"
+#include "SensorViewer.h"
 
-view::sensor::SensorPage::SensorPage(QWidget *parent)
+view::sensor::SensorViewer::SensorViewer(QWidget *parent)
 {
     layout = new QVBoxLayout(this);
     setLayout(layout);

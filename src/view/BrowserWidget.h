@@ -20,6 +20,8 @@ namespace view
     public:
         explicit BrowserWidget(model::db::Database* database,QWidget *parent = 0);
 
+    public slots:
+        void updateSensorsList();
     };
 }
 #endif

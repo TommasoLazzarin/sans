@@ -1,5 +1,5 @@
-#ifndef VIEW_SENSORPAGE_H
-#define VIEW_SENSORPAGE_H
+#ifndef VIEW_SENSOR_VIEWER_H
+#define VIEW_SENSOR_VIEWER_H
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -21,7 +21,7 @@ namespace view
         //          - QChartView: classe che permette di visualizzare un singolo grafico
         //          - QProgressBar: per implementare il QuantitySensor
         
-        class SensorPage : public QWidget
+        class SensorViewer : public QWidget
         {
             Q_OBJECT
 
@@ -30,7 +30,7 @@ namespace view
             view::sensor::ControlPanel *controlPanel;
             model::Sensor* sensor;
         public:
-            explicit SensorPage(QWidget *parent = nullptr);
+            explicit SensorViewer(QWidget *parent = nullptr);
             void setSensor(model::Sensor* sensor);
         };
 

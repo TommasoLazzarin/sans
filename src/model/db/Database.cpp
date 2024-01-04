@@ -1,4 +1,5 @@
 #include "model/db/Database.h"
+#include "Database.h"
 
 model::db::Database::Database() {}
 
@@ -30,4 +31,30 @@ void model::db::Database::addEmptyTimedValueSensor(const QString &name)
 {
     if (name != nullptr)
         sensors_db.prepend(new TimedValueSensor(name, QDateTime::currentDateTime()));
+}
+
+void model::db::Database::addEmptySensor(const QString &name, const int type)
+{
+    if (name != nullptr)
+    {
+        switch (type)
+        {
+        case 0:
+            addEmptyQuantitySensor(name, 100);//hardcoded max value
+            break;
+        case 1:
+            addEmptyEventSensor(name);
+            break;
+        case 2:
+            addEmptyTimedValueSensor(name);
+            break;
+        default:
+            break;
+        }
+    }
+}
+
+model::Sensor* model::db::Database::last()
+{
+    return sensors_db.last();
 }

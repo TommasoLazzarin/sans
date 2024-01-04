@@ -15,7 +15,7 @@ HEADERS += \
         view/NewSensorWidget.h \
         view/BrowserWidget.h \
         view/sensor/ControlPanel.h \
-        view/sensor/SensorPage.h \
+        view/sensor/SensorViewer.h \
         model/Sensor.h \
         model/QuantitySensor.h \
         model/EventSensor.h \
@@ -29,7 +29,7 @@ SOURCES += \
         view/NewSensorWidget.cpp \
         view/BrowserWidget.cpp \
         view/sensor/ControlPanel.cpp \
-        view/sensor/SensorPage.cpp \
+        view/sensor/SensorViewer.cpp \
         model/Sensor.cpp \
         model/QuantitySensor.cpp \
         model/EventSensor.cpp \
