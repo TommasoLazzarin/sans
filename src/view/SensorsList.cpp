@@ -8,8 +8,9 @@ void view::SensorsList::updateSensorsList()
 {
     // prende l'iteratore dal db e inserisce i QListWidgetItem nella lista
     QListWidgetItem *item;
-    item=new QListWidgetItem("Ciao", this);
-    // item = new QListWidgetItem(db->last()->getName() + " | " + db->last()->getCreatedAtString(), this);
-    // item->setIcon(awesome->icon(fa::fa_solid, fa::fa_thermometer));
+    model::Sensor* s = *(db->begin());
+    item = new QListWidgetItem(s->getName() + " | " + s->getCreatedAtString(), this);
+    item->setIcon(awesome->icon(fa::fa_solid, fa::fa_thermometer)); //da fare con il visitor
     addItem(item);
+    setCurrentRow(0);//seleziona in automatico il primo elemento
 }

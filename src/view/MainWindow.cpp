@@ -64,7 +64,6 @@ namespace view
             // splitter->setSizes(QList<int>() << 500 << 500);
         }
         db->addEmptySensor(newSensorWidget->getNewSensorName(), newSensorWidget->getNewSensorType());
-        db->last();
         emit newSensorAdded(); // emette il segnale per il refresh della lista e lo seleziona nella vista principale
         
     }

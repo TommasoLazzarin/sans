@@ -68,3 +68,8 @@ QList<model::Sensor *>::iterator model::db::Database::end()
 {
     return sensors_db.end();
 }
+
+bool model::db::Database::isEmpty() const
+{
+    return sensors_db.isEmpty();
+}

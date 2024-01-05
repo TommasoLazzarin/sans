@@ -53,6 +53,7 @@ void view::NewSensorWidget::clean()
     sensorTypeGroup->setExclusive(false); // fix
     for (int i = 0; i < sensorTypesButtonsList.size(); i++)
     {
+        sensorTypeGroup->setId(sensorTypesButtonsList[i], i);
         sensorTypesButtonsList[i]->setChecked(false);
     }
     sensorTypeGroup->setExclusive(true);

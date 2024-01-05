@@ -24,6 +24,7 @@ namespace model{
             model::Sensor* last();
             QList<Sensor*>::iterator begin(); //ritorna un iteratore al primo elemento della lista
             QList<Sensor*>::iterator end(); //ritorna un iteratore all'ultimo elemento della lista
+            bool isEmpty() const;
         };
     }
 }
