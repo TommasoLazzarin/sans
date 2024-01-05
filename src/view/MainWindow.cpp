@@ -32,12 +32,13 @@ namespace view
         // imposta layout
         splitter = new QSplitter(this);
         setCentralWidget(splitter);
-        browser = new view::BrowserWidget(db, this);
+        browser = new view::BrowserWidget(db, awesome, this);
         browser->setMinimumWidth(200);
         browser->setMinimumHeight(500);
-        sensorViewer = new view::sensor::SensorViewer(this);
+        sensorViewer = 0;//verrà allocato quando verrà aggiunto un sensore alla lista. Verrà deallocato quando non ci saranno più sensori.
+        noSensorAvailableWidget = new view::NoSensorAvailableWidget(this);
         splitter->addWidget(browser);
-        splitter->addWidget(sensorViewer);
+        splitter->addWidget(noSensorAvailableWidget);
         splitter->setSizes(QList<int>() << 500 << 1000);
         splitter->setChildrenCollapsible(false);
         // connect
@@ -55,7 +56,16 @@ namespace view
 
     void MainWindow::createEmptySensor() // si occupa di comunicare al db di creare un'istanza di sensore vuoto
     {
+        if(noSensorAvailableWidget->isVisible())
+        {
+            noSensorAvailableWidget->hide();
+            // sensorViewer = new view::sensor::SensorViewer(db, this);
+            // splitter->addWidget(sensorViewer);
+            // splitter->setSizes(QList<int>() << 500 << 500);
+        }
         db->addEmptySensor(newSensorWidget->getNewSensorName(), newSensorWidget->getNewSensorType());
-        emit newSensorAdded(db->last()); // emette il segnale per il refresh della lista e lo seleziona nella vista principale
+        db->last();
+        emit newSensorAdded(); // emette il segnale per il refresh della lista e lo seleziona nella vista principale
+        
     }
 }

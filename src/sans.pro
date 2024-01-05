@@ -16,6 +16,7 @@ HEADERS += \
         view/BrowserWidget.h \
         view/sensor/ControlPanel.h \
         view/sensor/SensorViewer.h \
+        view/NoSensorAvailableWidget.h \
         model/Sensor.h \
         model/QuantitySensor.h \
         model/EventSensor.h \
@@ -30,6 +31,7 @@ SOURCES += \
         view/BrowserWidget.cpp \
         view/sensor/ControlPanel.cpp \
         view/sensor/SensorViewer.cpp \
+        view/NoSensorAvailableWidget.cpp \
         model/Sensor.cpp \
         model/QuantitySensor.cpp \
         model/EventSensor.cpp \

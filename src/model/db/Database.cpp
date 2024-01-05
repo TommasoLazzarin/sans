@@ -58,3 +58,13 @@ model::Sensor* model::db::Database::last()
 {
     return sensors_db.last();
 }
+
+QList<model::Sensor *>::iterator model::db::Database::begin()
+{
+    return sensors_db.begin();
+}
+
+QList<model::Sensor *>::iterator model::db::Database::end()
+{
+    return sensors_db.end();
+}

@@ -12,3 +12,8 @@ void model::TimedValueSensor::addValue(const QDateTime &timestamp, const float v
 QList<float>::const_iterator model::TimedValueSensor::getValuesConstIterator() const{
     return values_list.constBegin();
 }
+
+void model::TimedValueSensor::simulate(){
+    model::EventSensor::simulate();
+    //TODO
+}

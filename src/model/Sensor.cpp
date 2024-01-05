@@ -3,6 +3,11 @@ model::Sensor::Sensor(const QString& n, const QDateTime& date) : name(n), create
 
 QDateTime model::Sensor::getCreatedAt() const { return created_at; }
 
+QString model::Sensor::getCreatedAtString() const
+{
+    return created_at.toString("dd/MM/yyyy hh:mm");
+}
+
 model::Sensor::~Sensor(){}
 
 QString model::Sensor::getName() const { return name; }

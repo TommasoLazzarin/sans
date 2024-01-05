@@ -22,6 +22,8 @@ namespace model{
             void remove(const Sensor* s);
             void addEmptySensor(const QString& name, const int type);
             model::Sensor* last();
+            QList<Sensor*>::iterator begin(); //ritorna un iteratore al primo elemento della lista
+            QList<Sensor*>::iterator end(); //ritorna un iteratore all'ultimo elemento della lista
         };
     }
 }

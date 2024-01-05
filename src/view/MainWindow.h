@@ -11,6 +11,7 @@
 #include "view/BrowserWidget.h"
 #include "view/sensor/SensorViewer.h"
 #include "view/NewSensorWidget.h"
+#include "view/NoSensorAvailableWidget.h"
 namespace view
 {
     class MainWindow : public QMainWindow
@@ -23,13 +24,16 @@ namespace view
         view::sensor::SensorViewer* sensorViewer;
         QSplitter* splitter;
         view::NewSensorWidget* newSensorWidget;
+        view::NoSensorAvailableWidget* noSensorAvailableWidget;
     public:
         explicit MainWindow(model::db::Database* database, fa::QtAwesome* icons,QWidget *parent = 0);
     public slots:
         void close();
         void createEmptySensor();
     signals:
-        void newSensorAdded(model::Sensor*);//per il refresh
+        //Nasconde il NoSensorAvailableWidget se presente, 
+        //dice al browser di aggiornare la lista e alla view/sensor di selezionarlo.
+        void newSensorAdded();
     };
 }
 #endif
