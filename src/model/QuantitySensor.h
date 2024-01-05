@@ -11,7 +11,7 @@ namespace model
 
     public:
         QuantitySensor(const QString& identifier, const QDateTime& created, const int val=0, const int max=100);
-        virtual ~QuantitySensor();
+        virtual ~QuantitySensor()=default;
         int getValue() const;
         void setValue(const int new_val);
         int getMaxValue() const;

@@ -11,6 +11,7 @@ namespace model{
         {
         private:
             QList<Sensor*> sensors_db;
+            //Metodi privati per aggiungere sensori vuoti per migliorare l'organizzazione del codice
             void addEmptyQuantitySensor(const QString& name, const int max);
             void addEmptyEventSensor(const QString& name);
             void addEmptyTimedValueSensor(const QString& name);
