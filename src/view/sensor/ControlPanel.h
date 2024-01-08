@@ -24,7 +24,13 @@ namespace view
             QHBoxLayout *layout;
 
         public:
-            ControlPanel(const QString& name, const QDateTime& creation, QWidget *parent = nullptr);
+            ControlPanel(QWidget *parent = nullptr);
+        public slots:
+            void sensorChanged(const QString& name, const QDateTime& creation);
+        signals:
+            void deleteSensor();   //lo invia a sensor viewer
+            void renameSensor();   //lo invia a sensor viewer
+            void simulateSensor(); //lo invia a sensor viewer
         };
     }
 }

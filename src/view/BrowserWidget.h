@@ -26,7 +26,7 @@ namespace view
     public slots:
         void updateSensorsList(); // segnale che arriva dalla MainWindow
     signals:
-    //     // void sensorSelected(model::Sensor*);
+        void sensorSelected(model::Sensor*); 
         void browserWidgetReloaded(); // segnale da passare alla sensorList
     };
 }

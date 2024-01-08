@@ -15,7 +15,7 @@ namespace view
         setWindowIcon(awesome->icon("fa-solid fa-gauge"));
         // inizializza il NewSensorWidget
         newSensorWidget = new view::NewSensorWidget(awesome, this);
-
+        //inizializza il 
         // actions
         QAction *close = new QAction(awesome->icon(fa::fa_solid, fa::fa_xmark), "Close");
         QAction *emptySensor = new QAction(awesome->icon(fa::fa_solid, fa::fa_arrow_up_right_from_square), "Create empty");
@@ -42,11 +42,12 @@ namespace view
         splitter->setSizes(QList<int>() << 500 << 1000);
         splitter->setChildrenCollapsible(false);
         // connect
-        connect(close, &QAction::triggered, this, &MainWindow::close);
-        connect(emptySensor, &QAction::triggered, newSensorWidget, &NewSensorWidget::createNewSensor);
-        connect(newSensorWidget, &NewSensorWidget::newSensorDataReady, this, &MainWindow::createEmptySensor);
-        connect(this, &MainWindow::newSensorAdded, browser, &BrowserWidget::updateSensorsList);
-        //connect(browser, &BrowserWidget::sensorSelected, sensorPage, &view::sensor::SensorPage::setSensor);
+        connect(close, &QAction::triggered, this, &MainWindow::close); //chiude l'applicazione
+        connect(emptySensor, &QAction::triggered, newSensorWidget, &NewSensorWidget::createNewSensor); //avvvia la procedura di creazione di un sensore vuoto
+        connect(newSensorWidget, &NewSensorWidget::newSensorDataReady, this, &MainWindow::createEmptySensor); //quando i dati sono pronti creo un sensore vuoto
+        connect(this, &MainWindow::newSensorAdded, browser, &BrowserWidget::updateSensorsList); //quando aggiungo un sensore aggiorno la lista
+        connect(this, &MainWindow::newSensorAdded, sensorViewer, &view::sensor::SensorViewer::sensorChanged); //quando aggiungo un sensore lo seleziono nella view
+        //connect(browser, &BrowserWidget::sensorSelected, sensorPage, &view::setSensorInViewer); //quando seleziono un sensore lo mostro nella view
     }
 
     void MainWindow::close()
@@ -56,15 +57,16 @@ namespace view
 
     void MainWindow::createEmptySensor() // si occupa di comunicare al db di creare un'istanza di sensore vuoto
     {
+        db->addEmptySensor(newSensorWidget->getNewSensorName(), newSensorWidget->getNewSensorType());
+        //se non 
         if(noSensorAvailableWidget->isVisible())
         {
             noSensorAvailableWidget->hide();
-            // sensorViewer = new view::sensor::SensorViewer(db, this);
-            // splitter->addWidget(sensorViewer);
-            // splitter->setSizes(QList<int>() << 500 << 500);
+            sensorViewer = new view::sensor::SensorViewer(this);
+            splitter->addWidget(sensorViewer);
+            splitter->setSizes(QList<int>() << 500 << 500);
         }
-        db->addEmptySensor(newSensorWidget->getNewSensorName(), newSensorWidget->getNewSensorType());
         emit newSensorAdded(); // emette il segnale per il refresh della lista e lo seleziona nella vista principale
-        
+        emit sensorSelectedChanged(db->last());
     }
 }

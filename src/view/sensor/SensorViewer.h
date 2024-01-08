@@ -31,7 +31,11 @@ namespace view
             model::Sensor* sensor;
         public:
             explicit SensorViewer(QWidget *parent = nullptr);
-            void setSensor(model::Sensor* sensor);
+        public slots:
+            void sensorChanged(model::Sensor* sensor);
+        signals:
+            void sensorDeleted(); //lo invia alla main window
+            void sensorRenamed(); //lo invia alla main window
         };
 
     }

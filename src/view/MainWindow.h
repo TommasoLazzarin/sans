@@ -30,10 +30,13 @@ namespace view
     public slots:
         void close();
         void createEmptySensor();
+        //non posso passare direttamente l'indice int, devo passare dal database a prendere il Sensor
+        void setSensorInViewer(int index);
     signals:
         //Nasconde il NoSensorAvailableWidget se presente, 
         //dice al browser di aggiornare la lista e alla view/sensor di selezionarlo.
         void newSensorAdded();
+        void sensorSelectedChanged(model::Sensor* sensor);
     };
 }
 #endif
